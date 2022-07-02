@@ -13,9 +13,9 @@ cmake CMakeLists.txt
 make || exit 2
 
 # execute the unit tests
-cd "$cwd"
+cd "$cwd" || exit 3
 cp "$1/unit_tests" "$cwd"
-./unit_tests || exit 3
+./unit_tests || exit 4
 
 # generate a coverage report
 gcovr --branches --xml-pretty -r . >> gcovr-report.xml

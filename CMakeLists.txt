@@ -31,7 +31,7 @@ add_definitions(-fprofile-arcs -ftest-coverage )
 add_compile_options(-Wall -g3 -fPIC -pthread -lgtest_main -lgtest -lpthread)
 
 # define the executable to be generated
-add_executable(unit_tests ${unittest_SRC})
+add_executable(unit_tests ${FILTERED_SRC_FILES})
 
 # Link 'unit_tests' the GTest library and the pthread library
 target_link_libraries(unit_tests ${GTEST_LIBRARIES} pthread gcov)

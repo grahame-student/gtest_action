@@ -16,11 +16,7 @@ find_package(Threads REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 # Recursively search for *.cpp files
-file(GLOB_RECURSE unittest_SRC "*.cpp")
-
-# We don't want to include the 'CMakeFiles' directory, so filter it out
-set (excludeDirName "CMakeLists")
-list(FILTER unittest_SRC EXCLUDE REGEX "${excludeDirName}")
+file(GLOB unittest_SRC "*.cpp")
 
 # define UNIT_TESTING
 add_definitions(-DUNIT_TESTING)

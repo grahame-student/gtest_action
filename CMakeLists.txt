@@ -17,17 +17,10 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Recursively search for *.cpp files
 file(GLOB_RECURSE unittest_SRC "*.cpp")
-message(STATUS "Located *.cpp src files")
-message(STATUS unittest_SRC)
 
 # We don't want to include the 'CMakeFiles' directory, so filter it out
 set (excludeDirName "CMakeLists")
-set(FILTERED_SRC_FILES unittest_SRC)
-message(STATUS "Copied list of *.cpp src files")
-message(STATUS FILTERED_SRC_FILES)
-list(FILTER FILTERED_SRC_FILES EXCLUDE REGEX "${excludeDirName}")
-message(STATUS "Filtered *.cpp files")
-message(STATUS FILTERED_SRC_FILES)
+list(FILTER unittest_SRC EXCLUDE REGEX "${excludeDirName}")
 
 # define UNIT_TESTING
 add_definitions(-DUNIT_TESTING)
@@ -37,7 +30,7 @@ add_definitions(-fprofile-arcs -ftest-coverage )
 add_compile_options(-Wall -g3 -fPIC -pthread -lgtest_main -lgtest -lpthread)
 
 # define the executable to be generated
-add_executable(unit_tests ${FILTERED_SRC_FILES})
+add_executable(unit_tests ${unittest_SRC})
 
 # Link 'unit_tests' the GTest library and the pthread library
 target_link_libraries(unit_tests ${GTEST_LIBRARIES} pthread gcov)

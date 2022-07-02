@@ -17,11 +17,17 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Recursively search for *.cpp files
 file(GLOB_RECURSE unittest_SRC "*.cpp")
+message(STATUS "Located *.cpp src files")
+message(STATUS unittest_SRC)
 
 # We don't want to include the 'CMakeFiles' directory, so filter it out
 set (excludeDirName "CMakeLists")
 set(FILTERED_SRC_FILES unittest_SRC)
+message(STATUS "Copied list of *.cpp src files")
+message(STATUS FILTERED_SRC_FILES)
 list(FILTER FILTERED_SRC_FILES EXCLUDE REGEX "${excludeDirName}")
+message(STATUS "Filtered *.cpp files")
+message(STATUS FILTERED_SRC_FILES)
 
 # define UNIT_TESTING
 add_definitions(-DUNIT_TESTING)

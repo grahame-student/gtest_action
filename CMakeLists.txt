@@ -21,7 +21,7 @@ file(GLOB_RECURSE unittest_SRC "*.cpp")
 # We don't want to include the 'CMakeFiles' directory, so filter it out
 set (excludeDirName "CMakeLists")
 set(FILTERED_SRC_FILES unittest_SRC)
-list(FILTER FILTERED_SRC_FILES EXCLUDE "${excludeDirName}")
+list(FILTER FILTERED_SRC_FILES EXCLUDE REGEX "${excludeDirName}")
 
 # define UNIT_TESTING
 add_definitions(-DUNIT_TESTING)

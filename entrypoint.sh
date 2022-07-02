@@ -9,6 +9,9 @@ cd "$1" || exit 1
 cmake CMakeLists.txt
 make
 
+# list contents of cmakelists directory
+ls -la "$1/CMakeLists"
+
 # execute the unit tests
 ./unit_tests
 

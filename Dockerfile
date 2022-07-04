@@ -5,7 +5,7 @@ RUN apk --no-cache add build-base=0.5-r3 \
                        gtest=1.11.0_git20220205-r1 \
                        gtest-dev=1.11.0_git20220205-r1 \
                        gcovr=5.1-r0 \
-                       uuidgen=2.38-r2
+                       uuidgen=2.38-r1
 RUN mkdir /workdir
 
 COPY entrypoint.sh /entrypoint.sh

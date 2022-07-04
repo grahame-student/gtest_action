@@ -1,10 +1,13 @@
 #!/bin/sh
 
 # Args
-# 1 - path to directory with test cases
+# $1 - path to directory with test cases
 
 # Record starting directory
 project_root="$PWD"
+
+# The following will need to wrapped so that multiple unit test
+# projects can be iterated through
 
 # Build the unit tests
 cp /CMakeLists.txt "$1"

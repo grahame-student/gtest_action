@@ -4,7 +4,7 @@
 # 1 - path to directory with test cases
 
 # Record starting directory
-cwd="$PWD"
+project_root="$PWD"
 
 # Build the unit tests
 cp /CMakeLists.txt "$1"
@@ -13,9 +13,9 @@ cmake CMakeLists.txt
 make || exit 2
 
 # execute the unit tests
-cd "$cwd" || exit 3
-cp "$1/unit_tests" "$cwd"
-./unit_tests || exit 4
+cd "$project_root" || exit 3
+"./$1/unit_tests" || exit 4
 
 # generate a coverage report
-gcovr --branches --xml-pretty -r . >> gcovr-report.xml
+uuid=$(uuidgen)
+gcovr --branches --xml-pretty -r "$project_root" >> "$uuid-report.xml"

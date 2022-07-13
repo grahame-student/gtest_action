@@ -1,10 +1,12 @@
 #!/bin/sh
 
 # Args
-# $1 - path to directory with test cases
-for var in "$@"
-do
-    echo "$var"
+# $1 paths to the unit test projects, delimited by ;
+
+# Split the delimited string into an array of paths
+IFS=';' read -ra paths <<< "$1"
+for i in "${paths[@]}"; do
+  echo "$i"
 done
 
 # Record starting directory

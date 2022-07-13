@@ -9,7 +9,7 @@ inputs:
     default: 'tests'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/grahame-student/gtest_action:v0.0.4-alpha5'
+  image: 'docker://ghcr.io/grahame-student/gtest_action:v0.0.4-alpha6'
   args:
     - ${{ inputs.test-path }}
 branding:

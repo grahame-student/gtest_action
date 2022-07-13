@@ -7,6 +7,8 @@
 IFS=';' read -ra paths <<< "$1"
 
 for i in "${paths[@]}"; do
+  echo "processing unit tests in: $i"
+  
   cp /CMakeLists.txt "$i"
   pushd "$i" || exit 1
   cmake CMakeLists.txt

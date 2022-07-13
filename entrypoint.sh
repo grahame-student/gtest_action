@@ -2,6 +2,10 @@
 
 # Args
 # $1 - path to directory with test cases
+for var in "$@"
+do
+    echo "$var"
+done
 
 # Record starting directory
 project_root="$PWD"

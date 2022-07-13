@@ -4,7 +4,7 @@
 # $1 paths to the unit test projects, delimited by ;
 
 # Split the delimited string into an array of paths
-IFS=';' read -ra paths <<< "$1"
+IFS=',' read -ra paths <<< "$1"
 
 for i in "${paths[@]}"; do
   echo "processing unit tests in: $i"
